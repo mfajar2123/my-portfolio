@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Fajar's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1rem;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .about-me {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            margin-top: 6rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-me-content {
+            flex: 1;
+        }
+        
+        .about-me img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-me h2 {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-me p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .about-me {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+            
+            .about-me img {
+                margin-bottom: 1.5rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        .skills ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .skills ul li {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            padding: 1rem;
+            text-align: center;
+            width: 120px;
+        }
+        
+        .skills ul li img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .projects ul, .recommendations ul {
+            list-style: none;
+        }
+        
+        .projects ul li, .recommendations ul li {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+        
+        .recommendations ul {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .recommendations ul li {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            flex: 1;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .recommendations ul li:before {
+            content: "";
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        .recommendations ul li:after {
+            content: "";
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            right: 10px;
+        }
+        
+        .recommendations ul li p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-color);
+            text-align: justify;
+        }
+        
+        .home-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            border: 2px solid #2c3e50;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .home-icon img {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .recommendation-form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .recommendation-form h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .recommendation-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .recommendation-form button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .recommendation-form button:hover {
+            background-color: #2980b9;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            
+            header .container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            .about-me img {
+                float: none;
+                display: block;
+                margin: 0 auto 1rem;
+            }
+            
+            .projects ul {
+                list-style-type: disc;
+                padding-left: 20px;
+            }
+            
+            .projects ul ul {
+                list-style-type: disc;
+                margin-left: 20px;
+            }
+            
+            .recommendations ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="home-icon">🏠</span>
+                Muhamad Fajar
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#recommendations">Recommendations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="about-me container">
+        <img src="profile.png" alt="Muhamad Fajar">
+        <div class="about-me-content">
+            <h2>Hello, I'm Muhamad Fajar!</h2>
+            <p>
+                I'm a passionate web developer with a keen eye for creating beautiful and functional websites. With expertise in HTML, CSS, and JavaScript, I bring ideas to life through clean, efficient code. My journey in web development is driven by a constant desire to learn and adapt to new technologies.
+            </p>
+            <p>
+                When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying a good cup of coffee while brainstorming my next big idea.
+            </p>
+            <div class="social-links">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills" class="skills container">
+        <h2 class="section-title">Skills</h2>
+        <ul>
+            <li>
+                <img src="html.png" alt="HTML Logo">
+                <p>1 year experience</p>
+            </li>
+            <li>
+                <img src="css.png" alt="CSS Logo">
+                <p>1 year experience</p>
+            </li>
+            <li>
+                <img src="javascript.png" alt="JavaScript Logo">
+                <p>2 years experience</p>
+            </li>
+            <li>
+                <img src="spring.png" alt="Spring Logo">
+                <p>2 years experience</p>
+            </li>
+            <li>
+                <img src="node.png" alt="Node.js Logo">
+                <p>3 years experience</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="projects" class="projects container">
+        <h2 class="section-title">Projects</h2>
+        <ul>
+            <li>
+                <strong>Restaurant Reservation System</strong>
+                <ul>
+                    <li>Built an online reservation platform for restaurants using PHP and MySQL, allowing users to book tables, receive email confirmations, and view available slots in real-time.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Weather Forecast Dashboard</strong>
+                <ul>
+                    <li>Developed a dynamic web app using React and OpenWeather API to provide real-time weather data and forecasts, with a focus on responsive design and performance optimization.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Online Learning Platform</strong>
+                <ul>
+                    <li>Created a scalable e-learning platform using Django and PostgreSQL, where users can enroll in courses, track their progress, and engage with interactive quizzes.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="recommendations" class="recommendations container">
+        <h2 class="section-title">Recommendations</h2>
+        <ul id="recommendation-list">
+            <li>
+                <p>Fajar is a very quick learner and quickly grasps key concepts of Web development. She got a great attitude & she is an excellent team player. She has a curious mind and asks the right questions. She takes initiative within a team and has potentials to lead the team.</p>
+            </li>
+            <li>
+                <p>Working with Fajar has been an awesome experience. She is extremely knowledgeable and always takes the first step to make improvements in any project. For any future projects that need her expertise, I would love to work with her again.</p>
+            </li>
+            <li>
+                <p>I had worked along with Jane during the initial phase of our venture which needed Web development. She is a committed resource who has in-depth knowledge about the domain. She will be an asset for any organization!</p>
+            </li>
+        </ul>
+        
+        <div class="recommendation-form">
+            <h3>Submit a Recommendation</h3>
+            <form id="recommendation-form">
+                <textarea name="recommendation" rows="4" placeholder="Write your recommendation here..." required></textarea>
+                <button type="submit">Submit Recommendation</button>
+            </form>
+        </div>
+    </section>
+
+    <a href="#" class="home-icon"></a>
+        <img src="home_icon.png" alt="Home">
+    </a>
+
+    <div class="popup" id="success-popup">
+        <p>Thank you for submitting a recommendation!</p>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        document.getElementById('recommendation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const recommendationText = this.recommendation.value.trim();
+            if (recommendationText) {
+                const newRecommendation = document.createElement('li');
+                newRecommendation.innerHTML = `<p>${recommendationText}</p>`;
+                document.getElementById('recommendation-list').appendChild(newRecommendation);
+                this.reset();
+                showPopup();
+            }
+        });
+
+        function showPopup() {
+            document.getElementById('success-popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('success-popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }, 3000);
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>
